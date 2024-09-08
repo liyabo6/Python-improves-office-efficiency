@@ -1,0 +1,26 @@
+import tushare as ts
+
+# 设置token
+ts.set_token('3f88bec7b21f7b95f1562523a6e6bcc24e976e053a54f359c104831a')
+
+# 初始化pro接口
+pro = ts.pro_api()
+
+# 获取数据
+# 工商银行
+income_icbc = pro.income(ts_code='601398.SH', start_date='20200101', end_date='20201231', fields='ts_code,ann_date,f_ann_date,end_date,report_type,comp_type,total_revenue')
+# 建设银行
+income_ccb = pro.income(ts_code='601939.SH', start_date='20200101', end_date='20201231', fields='ts_code,ann_date,f_ann_date,end_date,report_type,comp_type,total_revenue')
+# 中国银行
+income_boc = pro.income(ts_code='601988.SH', start_date='20200101', end_date='20201231', fields='ts_code,ann_date,f_ann_date,end_date,report_type,comp_type,total_revenue')
+# 农业银行
+income_abc = pro.income(ts_code='601288.SH', start_date='20200101', end_date='20201231', fields='ts_code,ann_date,f_ann_date,end_date,report_type,comp_type,total_revenue')
+# 交通银行
+income_bcom = pro.income(ts_code='601328.SH', start_date='20200101', end_date='20201231', fields='ts_code,ann_date,f_ann_date,end_date,report_type,comp_type,total_revenue')
+
+# 打印结果
+print(income_icbc[['ts_code', 'total_revenue']])
+print(income_ccb[['ts_code', 'total_revenue']])
+print(income_boc[['ts_code', 'total_revenue']])
+print(income_abc[['ts_code', 'total_revenue']])
+print(income_bcom[['ts_code', 'total_revenue']])
